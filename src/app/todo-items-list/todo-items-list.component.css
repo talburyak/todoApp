@@ -1,0 +1,30 @@
+.div_todoList {
+  padding: 20px;
+}
+
+.todolist_buttons {
+  display: flex;
+}
+
+.table_tr {
+  background-color: #f8f9fa;
+}
+
+.todospan {
+  padding: 20px;
+}
+
+.delete_span {
+  position: absolute;
+  right: 30px;
+  padding: 20px;
+  top: 2px;
+}
+
+.div_list {
+  position: relative;
+}
+
+.div_item_list {
+  margin: 15px;
+}

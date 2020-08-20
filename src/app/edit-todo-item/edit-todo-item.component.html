@@ -1,0 +1,34 @@
+<form #todoForm="ngForm" (ngSubmit)="sendToDoList(todoForm)" novalidate class="form-inline">
+    <div class="edit-form">
+        <div>
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Id</span>
+                </div>
+                <input type="text" class="form-control" id="todo_id" readonly required name="todo_id"
+                    [ngModel]="selectedTodo.todo_id">
+            </div>
+        </div>
+        <div>
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Title</span>
+                </div>
+                <input type="text" class="form-control" id="title" required name="title" [ngModel]="selectedTodo.title">
+            </div>
+        </div>
+        <div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Text</span>
+                </div>
+                <input type="text" class="form-control" required name="todoText" [ngModel]="selectedTodo.todoText">
+            </div>
+        </div>
+        <div class="btn-edit">
+            <button class="btn btn-success btn-sm"><i class="fas fa-pencil-alt"></i> save</button>
+        </div>
+    </div>
+</form>

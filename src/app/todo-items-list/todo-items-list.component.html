@@ -1,0 +1,50 @@
+<div class="panel panel-primary div_todoList">
+    <div class="panel-heading">
+        <h2>{{ title }}</h2>
+        <!-- <div *ngIf="alert" class="alert alert-success" role="alert">
+            Your data has been deleted successfully!
+        </div> -->
+        <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+           {{ alert_succ_mess  }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div *ngIf="alert_error" class="alert alert-danger" role="alert">
+            Some error to adding data!
+            {{alert_error_mess}}
+        </div>
+    </div>
+
+    <div class="panel-body div_list">
+        <ul class="list-group" *ngIf="todoItems">
+            <li class="list-group-item" *ngFor="let todoItem of todoItems">
+                <div class="div_item_list" *ngIf="!selectedTodo">
+                    <div (click)="editTodo(todoItem)">
+                        <span class="todo_id todospan">{{ todoItem['todo_id'] }}</span>
+                        <span class="title todospan">{{ todoItem['title'] }}</span>
+                        <span class="todoText todospan">{{ todoItem['todoText'] }}</span>
+                    </div>
+                    <span class="delete_span todospan"><button (click)="deleteTodoItems(todoItem)"
+                            class="btn btn-danger">Delete</button></span>
+                </div>
+                <div *ngIf="selectedTodo">
+                    <div class="div_item_list" *ngIf="todoItem.todo_id !== selectedTodo.todo_id">
+                        <div (click)="editTodo(todoItem)">
+                            <span class="todo_id todospan">{{ todoItem['todo_id'] }}</span>
+                            <span class="title todospan">{{ todoItem['title'] }}</span>
+                            <span class="todoText todospan">{{ todoItem['todoText'] }}</span>
+                        </div>
+                        <span class="delete_span todospan">
+                            <button (click)="deleteTodoItems(todoItem)" class="btn btn-danger">Delete</button>
+                        </span>
+                    </div>
+                    <div *ngIf="todoItem.todo_id === selectedTodo.todo_id">
+                        <app-edit-todo-item [selectedTodo]="selectedTodo"
+                            (sendToDoListEvent)="sendToDoListEventHandler($event)"></app-edit-todo-item>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+.todoItems-div {
+  padding: 20px;
+}
+
+.cards {
+  padding: 5px;
+}
+
+.btn-edit {
+  padding-right: 15px;
+}
+
+.btn-actions,
+.titleTodoItems {
+  display: flex;
+}
+
+/* You can add global styles to this file, and also import other style files */
