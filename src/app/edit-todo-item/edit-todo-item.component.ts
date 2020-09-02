@@ -15,14 +15,17 @@ export class EditTodoItemComponent implements OnInit {
   constructor(private todoItemService: TodoItemListService) {}
 
   ngOnInit(): void {}
-
+  /**
+   * getting all new changes of todo item and  sending to service file.
+   * @param todoForm
+   */
   sendToDoList(todoForm: NgForm) {
-    if (todoForm.value.title == '' || todoForm.value.todoText == undefined) return false;
+    if (todoForm.value.title == '' || todoForm.value.todoText == undefined)
+      return false;
     this.sendToDoListEvent.emit(todoForm.value);
     this.todoItemService.editToDoItem(todoForm.value).subscribe(
       (data) => console.log(data),
       (error) => console.log(error)
     );
   }
-
 }
