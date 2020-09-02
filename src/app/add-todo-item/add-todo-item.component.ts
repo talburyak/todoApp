@@ -29,12 +29,14 @@ export class AddTodoItemComponent implements OnInit {
       todoText: ['', Validators.required],
     });
   }
+  /**
+   * creating new todo item
+   */
 
   newTodoItem(): void {
     this.submitted = false;
     this.todoItem = new TodoItemComponent();
   }
-
   onSubmit() {
     console.log(this.addForm.value);
     if (
@@ -48,16 +50,21 @@ export class AddTodoItemComponent implements OnInit {
     this.submitted = true;
     this.save();
   }
+  /**
+   * saving new todo item.
+   */
   save() {
     this.todoItemService.addToDoItem(this.addForm.value).subscribe(
       (data) => console.log(data),
       (error) => (this.alert_error = true)
-      );
-      this.alert = true;
+    );
+    this.alert = true;
     this.todoItem = new TodoItemComponent();
     this.gotoList();
   }
-
+  /**
+   * navigating to main page.
+   */
   gotoList() {
     this.alert = true;
     this.router.navigate(['/']);
