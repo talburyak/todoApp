@@ -16,7 +16,7 @@ export class TodoItemListService {
     }),
   };
   /**
-   * Call to API getting all todo items
+   * Call to API getting all todo items-not in use now.
    */
   public getAllTodoItems(): Observable<TodoItemComponent[]> {
     return this.http.get<TodoItemComponent[]>(
@@ -24,7 +24,7 @@ export class TodoItemListService {
     );
   }
   /**
-   *  API. AddToDoItemApi adding new todo item to list of items - No in Active Now.
+   *  API. AddToDoItemApi adding new todo item to list of items - No in use now.
    * @param todoItem
    */
   public addToDoItemApi(
@@ -36,6 +36,10 @@ export class TodoItemListService {
       this.httpOptions
     );
   }
+  /**
+   * editing todo item send to database.
+   * @param todoItem
+   */
   editToDoItem(todoItem: TodoItemComponent): Observable<Object> {
     return this.http.post(
       `${this.baseUrl}?action=editTodoItem&todo_id=${todoItem.todo_id}&title=${todoItem.title}&todoText=${todoItem.todoText}`,
@@ -50,7 +54,7 @@ export class TodoItemListService {
   }
   /**
    * Delete current todo item.
-   * @param id
+   * @param id - id of todo item.
    */
   deleteToDoItem(id: number) {
     return this.http.get<TodoItemComponent>(
@@ -58,7 +62,7 @@ export class TodoItemListService {
     );
   }
   /**
-   * addToDoItem
+   * addToDoItem -adding new todo item.
    * @param todoItem
    */
   addToDoItem(todoItem: TodoItemComponent): Observable<Object> {
