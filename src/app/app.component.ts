@@ -7,6 +7,9 @@ import { TodoItemComponent } from './todo-item.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
+/**
+ * class AppComponent
+ */
 export class AppComponent implements OnInit {
   title = 'todoApp';
   todoItems: TodoItemComponent[] = null;
