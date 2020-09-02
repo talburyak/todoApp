@@ -17,7 +17,9 @@ export class TodoItemsListComponent implements OnInit {
   alert_error: boolean = false;
   alert_error_mess = '';
   alert_succ_mess = '';
-
+ /**
+  * getting all todo items from service file.
+  */
   ngOnInit(): void {
     this._service.getTodoItemsList().subscribe((data: TodoItemComponent[]) => {
       this.todoItems = data;
@@ -26,7 +28,7 @@ export class TodoItemsListComponent implements OnInit {
   }
   /**
    * Deleting current todo item from list of Items.
-   * @param TodoItem
+   * @param TodoItem object of todo item
    */
   deleteTodoItems(todoItem: TodoItemComponent): void {
     console.log(todoItem);
@@ -37,7 +39,7 @@ export class TodoItemsListComponent implements OnInit {
     });
   }
   /**
-   *
+   *setting selected item to variable to edit it.
    * @param TodoItem
    */
   editTodo(todoItem: TodoItemComponent) {
@@ -45,7 +47,7 @@ export class TodoItemsListComponent implements OnInit {
     this.selectedTodo = todoItem;
   }
   /**
-   * Event to update todo item
+   * Event to update todo item.
    */
   sendToDoListEventHandler(todoItem: TodoItemComponent) {
     console.log('todoitems=', this.todoItems, todoItem);
